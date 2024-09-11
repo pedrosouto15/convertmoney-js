@@ -9,7 +9,7 @@ function convertValues() {
 
     const dolarToday = 5.58 //VALOR DO DOLAR
     const euroToday = 6.16 // VALOR DO EURO
-    const bitcoinToday = 320445.15 // VALOR DO BITCOIN
+    const bitcoinToday = 320445.1555 // VALOR DO BITCOIN
     const libraToday = 7.30 // VALOR DA LIBRAS
 
     if (currencySelect.value == "dolar") {
@@ -27,7 +27,8 @@ function convertValues() {
     }
 
     if (currencySelect.value == "bitcoin") {
-        currencyValueConverted.innerHTML = Intl.NumberFormat("de-DE", {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", { 
+            maximumSignificantDigits: 3,
             style: "currency",
             currency: "XBT"
         }).format(inputCurrencyValue / bitcoinToday) //SE O VALOR FOR BITCOIN, ENTRE AQUI!
